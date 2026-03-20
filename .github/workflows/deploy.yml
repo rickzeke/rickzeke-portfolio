@@ -1,7 +1,15 @@
 name: Deploy to GitHub Pages
-on: [push, workflow_dispatch]
-permissions: contents: write; pages: write; id-token: write
-concurrency: group: pages
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
   deploy:
     environment:
@@ -15,4 +23,3 @@ jobs:
         with:
           path: '.'
       - uses: actions/deploy-pages@v4
-        id: deployment
