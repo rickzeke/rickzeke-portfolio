@@ -3,171 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>rickzeke — AI产品实验室</title>
+<title>RickZeke — AI产品组合</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#08090d;--bg2:#0e1018;--bg3:#151821;--card:#1a1d28;--card2:#20242f;--accent:#ff4d4d;--accent2:#ff9f43;--accent3:#a855f7;--text:#f8f9fc;--text2:#94a3b8;--text3:#64748b;--border:#2a2d3a;--green:#10b981}
+:root{--bg:#080810;--bg2:#0e0e18;--bg3:#15151f;--card:#1c1c28;--border:rgba(255,255,255,0.06);--accent:#ff4d4d;--accent2:#ff9f43;--accent3:#4dffb4;--text:#f8f9fc;--text2:#94a3b8;--text3:#64748b}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"Noto Sans SC","Inter",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-.bg{position:fixed;inset:0;background-image:linear-gradient(rgba(255,77,77,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,77,77,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
-.glow{position:fixed;width:500px;height:500px;border-radius:50%;filter:blur(120px);opacity:0.06;pointer-events:none;z-index:0}
-.g1{background:var(--accent);top:-150px;left:-100px}
-.g2{background:var(--accent2);bottom:-200px;right:-100px}
-.g3{background:var(--accent3);top:40%;left:60%;opacity:0.04}
-.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:60px 24px 100px}
-.hero{text-align:center;padding:60px 0 80px}
-.avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 24px;box-shadow:0 8px 40px rgba(255,77,77,0.2)}
-h1{font-size:42px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;letter-spacing:-1px}
-.sub{color:var(--text2);font-size:16px;margin-bottom:24px}
-.tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.tag{background:var(--bg3);border:1px solid var(--border);padding:4px 14px;border-radius:20px;font-size:12px;color:var(--text3)}
-.stats{display:flex;gap:32px;justify-content:center;margin-top:32px}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.container{max-width:1100px;margin:0 auto;padding:60px 24px 100px}
+header{text-align:center;margin-bottom:64px}
+header h1{font-size:clamp(36px,6vw,56px);font-weight:900;background:linear-gradient(135deg,#ff4d4d,#ff9f43);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
+.stats{display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap}
 .stat{text-align:center}
-.stat-num{font-size:28px;font-weight:800;color:var(--accent)}
-.stat-label{font-size:12px;color:var(--text3);margin-top:2px}
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:40px 0}
-.section-title{font-size:13px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;display:flex;align-items:center;gap:12px}
-.section-title::after{content:"";flex:1;height:1px;background:var(--border)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.card:hover{border-color:rgba(255,77,77,.35)}
-.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
-.card-icon{font-size:28px}
-.card-badge{font-size:10px;padding:3px 10px;border-radius:12px;background:var(--bg3);border:1px solid var(--border);color:var(--text3)}
-.card-badge.new{background:rgba(255,77,77,.12);border-color:rgba(255,77,77,.3);color:var(--accent)}
-.card-name{font-size:15px;font-weight:700;margin-bottom:4px}
-.card-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:12px}
-.card-tags{display:flex;gap:6px;flex-wrap:wrap}
-.card-tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--bg3);color:var(--text3)}
-.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border)}
-.card-url{font-size:11px;color:var(--text3);display:flex;align-items:center;gap:4px}
-.card-status{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--green)}
-.footer{text-align:center;padding:60px 0 20px;color:var(--text3);font-size:13px}
+.stat .num{font-size:36px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat .label{color:var(--text3);font-size:12px;margin-top:4px}
+.section-title{font-size:14px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';width:4px;height:16px;background:var(--accent);border-radius:2px}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:60px}
+.product{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .25s;cursor:pointer;position:relative;overflow:hidden}
+.product::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .25s}
+.product:hover{transform:translateY(-4px);border-color:rgba(255,77,77,0.2);box-shadow:0 16px 48px rgba(0,0,0,0.4)}
+.product:hover::before{opacity:1}
+.product-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+.product-icon{font-size:28px;line-height:1}
+.product-badge{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:600;display:flex;align-items:center;gap:4px}
+.badge-new{background:rgba(255,77,77,0.15);color:var(--accent);border:1px solid rgba(255,77,77,0.3)}
+.badge-live{background:rgba(77,255,180,0.1);color:var(--accent3);border:1px solid rgba(77,255,180,0.3)}
+.product-name{font-size:16px;font-weight:700;margin-bottom:6px}
+.product-desc{color:var(--text2);font-size:13px;line-height:1.6;margin-bottom:16px}
+.product-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{background:var(--bg3);padding:3px 8px;border-radius:6px;font-size:11px;color:var(--text3)}
+.product-url{color:var(--text3);font-size:11px;display:flex;align-items:center;gap:4px;margin-top:12px}
+.heartbeat-bar{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden;margin-top:16px}
+.heartbeat-fill{height:100%;width:100%;background:linear-gradient(90deg,var(--accent3),#4dffff);border-radius:2px;animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.footer{text-align:center;padding:40px 0;color:var(--text3);font-size:13px}
 .footer a{color:var(--accent);text-decoration:none}
-@media(max-width:600px){h1{font-size:28px}.grid{grid-template-columns:1fr}.stats{gap:20px}.stat-num{font-size:22px}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.product{animation:fadeIn .4s ease both}
+.products .product:nth-child(1){animation-delay:.05s}.products .product:nth-child(2){animation-delay:.1s}.products .product:nth-child(3){animation-delay:.15s}.products .product:nth-child(4){animation-delay:.2s}.products .product:nth-child(5){animation-delay:.25s}.products .product:nth-child(6){animation-delay:.3s}.products .product:nth-child(7){animation-delay:.35s}.products .product:nth-child(8){animation-delay:.4s}
+@media(max-width:600px){.container{padding:40px 16px 60px}.stats{gap:20px}}
 </style>
 </head>
 <body>
-<div class="bg"></div>
-<div class="glow g1"></div>
-<div class="glow g2"></div>
-<div class="glow g3"></div>
-
-<div class="wrap">
-<div class="hero">
-<div class="avatar">🧪</div>
-<h1>AI 产品实验室</h1>
-<p class="sub">独立开发 · AI驱动 · 快速迭代</p>
-<div class="tags">
-<span class="tag">🎨 纯前端产品</span>
-<span class="tag">⚡ 快速开发</span>
-<span class="tag">🚀 持续上线</span>
-<span class="tag">💡 需求驱动</span>
-</div>
+<div class="container">
+<header>
+<h1>⚡ RickZeke 产品组合</h1>
+<p>AI驱动的微型产品组合，持续构建、持续部署、持续迭代</p>
 <div class="stats">
-<div class="stat"><div class="stat-num">8</div><div class="stat-label">已上线产品</div></div>
-<div class="stat"><div class="stat-num">3</div><div class="stat-label">开发中</div></div>
-<div class="stat"><div class="stat-num">13</div><div class="stat-label">调研品类</div></div>
+<div class="stat"><div class="num" id="count-live">8</div><div class="label">已上线产品</div></div>
+<div class="stat"><div class="num" id="count-healthy">8</div><div class="label">健康运行中</div></div>
+<div class="stat"><div class="num" id="count-dev">3</div><div class="label">开发中</div></div>
 </div>
-</div>
+</header>
 
-<div class="divider"></div>
+<div class="section-title">🚀 已上线产品</div>
+<div class="products" id="products-live"></div>
 
-<div class="section-title">🚀 全部产品</div>
-<div class="grid">
-<a class="card" href="https://rickzeke.github.io/miaozhuan-web/" target="_blank">
-<div class="card-header"><span class="card-icon">🎬</span><span class="card-badge new">新上线</span></div>
-<div class="card-name">秒转</div>
-<div class="card-desc">短视频链接 → 多平台内容一键生成。抖音/小红书/视频号链接提取脚本，自动生成公众号、小红书、微博、播客等5种格式。</div>
-<div class="card-tags"><span class="card-tag">AI</span><span class="card-tag">内容创作</span><span class="card-tag">效率工具</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/miaozhuan-web</span><span class="card-status">● Live</span></div>
-</a>
-
-<a class="card" href="https://rickzeke.github.io/lyrics-sync-web/" target="_blank">
-<div class="card-header"><span class="card-icon">🎤</span></div>
-<div class="card-name">歌词同步卡拉OK</div>
-<div class="card-desc">LRC歌词时间轴自动对齐，音频播放逐行高亮，极光动画UI。支持本地歌词解析和手动时间轴编辑。</div>
-<div class="card-tags"><span class="card-tag">音乐</span><span class="card-tag">娱乐</span><span class="card-tag">社交</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/lyrics-sync-web</span><span class="card-status">● Live</span></div>
-</a>
-
-<a class="card" href="https://rickzeke.github.io/ai-life-simulator-web/" target="_blank">
-<div class="card-header"><span class="card-icon">🏠</span></div>
-<div class="card-name">AI生活模拟器 — 租房奇遇</div>
-<div class="card-desc">AI驱动的文字冒险游戏，体验真实的租房过程。遇到各种房东、室友、奇葩户型，做出选择影响结局。</div>
-<div class="card-tags"><span class="card-tag">AI</span><span class="card-tag">游戏</span><span class="card-tag">文字冒险</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/ai-life-simulator-web</span><span class="card-status">● Live</span></div>
-</a>
-
-<a class="card" href="https://rickzeke.github.io/social-game-web/" target="_blank">
-<div class="card-header"><span class="card-icon">🎭</span></div>
-<div class="card-name">真心话大冒险</div>
-<div class="card-desc">多人社交聚会游戏，支持轮流抽卡、随机挑战、分享功能。适合朋友聚会、破冰活动。</div>
-<div class="card-tags"><span class="card-tag">社交</span><span class="card-tag">游戏</span><span class="card-tag">聚会</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/social-game-web</span><span class="card-status">● Live</span></div>
-</a>
-
-<a class="card" href="https://rickzeke.github.io/ai-prompt-pro-web/" target="_blank">
-<div class="card-header"><span class="card-icon">💎</span></div>
-<div class="card-name">AI提示词优化工具</div>
-<div class="card-desc">6大职业场景选择，18个精调模板，AI一键优化提示词。一键复制，格式导出。</div>
-<div class="card-tags"><span class="card-tag">AI</span><span class="card-tag">效率</span><span class="card-tag">提示词</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/ai-prompt-pro-web</span><span class="card-status">● Live</span></div>
-</a>
-
-<a class="card" href="https://rickzeke.github.io/ai-productivity-web/" target="_blank">
-<div class="card-header"><span class="card-icon">📚</span></div>
-<div class="card-name">AI提示词管理器</div>
-<div class="card-desc">提示词分类管理、一键复制、搜索过滤。精美UI，支持localStorage持久化。</div>
-<div class="card-tags"><span class="card-tag">AI</span><span class="card-tag">效率</span><span class="card-tag">管理</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/ai-productivity-web</span><span class="card-status">● Live</span></div>
-</a>
-
-<a class="card" href="https://rickzeke.github.io/multi-platform-publisher-web/" target="_blank">
-<div class="card-header"><span class="card-icon">📡</span></div>
-<div class="card-name">内容创作者多平台发布</div>
-<div class="card-desc">AI润色、多平台预览、一键复制、草稿保存。支持公众号、小红书、微博、抖音等多平台格式适配。</div>
-<div class="card-tags"><span class="card-tag">创作</span><span class="card-tag">多平台</span><span class="card-tag">效率</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/multi-platform-publisher-web</span><span class="card-status">● Live</span></div>
-</a>
-
-<a class="card" href="https://rickzeke.github.io/ai-english-web/" target="_blank">
-<div class="card-header"><span class="card-icon">🌏</span></div>
-<div class="card-name">AI英语学习助手</div>
-<div class="card-desc">6大实用场景AI对话练习，词汇提示，学习历史记录。旅游、面试、商务、留学等场景全覆盖。</div>
-<div class="card-tags"><span class="card-tag">AI</span><span class="card-tag">教育</span><span class="card-tag">英语</span></div>
-<div class="card-footer"><span class="card-url">🔗 rickzeke.github.io/ai-english-web</span><span class="card-status">● Live</span></div>
-</a>
-</div>
-
-<div class="divider"></div>
-<div class="section-title">🔨 开发中</div>
-<div class="grid">
-<a class="card" href="#" onclick="return false" style="opacity:0.6">
-<div class="card-header"><span class="card-icon">⚡</span><span class="card-badge">规划中</span></div>
-<div class="card-name">AI运动视频分析工具</div>
-<div class="card-desc">AI高光识别，一键分享到抖音/小红书。切入运动爱好者市场。</div>
-<div class="card-tags"><span class="card-tag">AI</span><span class="card-tag">运动</span><span class="card-tag">视频</span></div>
-</a>
-<a class="card" href="#" onclick="return false" style="opacity:0.6">
-<div class="card-header"><span class="card-icon">🔊</span><span class="card-badge">规划中</span></div>
-<div class="card-name">AI语音生成工具</div>
-<div class="card-desc">基于Kitten TTS开源模型，聚焦播客配音、有声书、教育场景。</div>
-<div class="card-tags"><span class="card-tag">AI</span><span class="card-tag">TTS</span><span class="card-tag">语音</span></div>
-</a>
-<a class="card" href="#" onclick="return false" style="opacity:0.6">
-<div class="card-header"><span class="card-icon">🏪</span><span class="card-badge">规划中</span></div>
-<div class="card-name">本地商家认领页工具</div>
-<div class="card-desc">帮助本地商家一键生成认领页，多平台分发。</div>
-<div class="card-tags"><span class="card-tag">SaaS</span><span class="card-tag">本地商家</span><span class="card-tag">建站</span></div>
-</a>
-</div>
+<div class="section-title">🛠️ 开发中</div>
+<div class="products" id="products-dev"></div>
 
 <div class="footer">
-<p>Built with 🧪 by <a href="https://github.com/rickzeke" target="_blank">@rickzeke</a> · 持续迭代中</p>
-<p style="margin-top:8px;font-size:12px;color:var(--text3)">Powered by AI · Deployed on GitHub Pages</p>
+<p>健康监控：<a href="https://github.com/rickzeke/product-health-monitor" target="_blank">product-health-monitor</a> · 每小时自动检测</p>
+<p style="margin-top:8px">部署平台：GitHub Pages · 自动构建：GitHub Actions</p>
 </div>
 </div>
+
+<script>
+const PRODUCTS = [
+{name:'秒转',icon:'🎬',desc:'短视频链接 → 多平台内容，一键生成。抖音/小红书/视频号',url:'https://rickzeke.github.io/miaozhuan-web/',tags:['AI','内容创作','效率'],new:true,category:'efficiency'},
+{name:'AI提示词管理器',icon:'💎',desc:'分类管理、一键复制、智能搜索。专业AI提示词库',url:'https://rickzeke.github.io/ai-productivity-web/',tags:['AI','效率'],new:false,category:'efficiency'},
+{name:'AI提示词优化',icon:'✨',desc:'6大职业场景，18个模板，AI一键优化提示词',url:'https://rickzeke.github.io/ai-prompt-pro-web/',tags:['AI','效率','职业'],new:false,category:'efficiency'},
+{name:'内容多平台发布',icon:'📡',desc:'AI润色、多平台预览、一键复制。支持微信公众号/微博/小红书',url:'https://rickzeke.github.io/multi-platform-publisher-web/',tags:['效率','创作者','多平台'],new:false,category:'efficiency'},
+{name:'歌词卡拉OK',icon:'🎤',desc:'LRC解析、逐行同步、极光动画。在线歌词同步播放器',url:'https://rickzeke.github.io/lyrics-sync-web/',tags:['音乐','娱乐','工具'],new:false,category:'entertainment'},
+{name:'AI英语口语陪练',icon:'🗣️',desc:'6大场景AI对话，智能提示词汇，沉浸式英语学习',url:'https://rickzeke.github.io/ai-english-web/',tags:['AI','教育','英语'],new:false,category:'education'},
+{name:'真心话大冒险',icon:'🎲',desc:'多人社交游戏，随机挑战题目，微信/抖音分享',url:'https://rickzeke.github.io/social-game-web/',tags:['游戏','社交','休闲'],new:false,category:'entertainment'},
+{name:'AI生活模拟器',icon:'🏠',desc:'租房奇遇模拟，AI生成剧情，体验不同人生',url:'https://rickzeke.github.io/ai-life-simulator-web/',tags:['AI','游戏','模拟'],new:false,category:'entertainment'},
+];
+
+const DEV_PRODUCTS = [
+{name:'AI运动视频分析',icon:'🏃',desc:'AI高光识别，一键剪辑分享到抖音/小红书',tags:['AI','运动','视频'],category:'efficiency'},
+{name:'AI语音生成工具',icon:'🔊',desc:'基于Kitten TTS，轻量级语音合成，浏览器端运行',tags:['AI','TTS','开源'],category:'efficiency'},
+{name:'本地商家建站',icon:'🏪',desc:'AI自动生成商家认领页，多平台分发',tags:['工具','本地商家','建站'],category:'efficiency'},
+];
+
+function renderProducts(list, container, isLive) {
+  container.innerHTML = '';
+  list.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'product';
+    div.onclick = () => window.open(p.url, '_blank');
+    const badge = p.new ? '<span class="product-badge badge-new">✨ 新上线</span>' : (isLive ? '<span class="product-badge badge-live">● 运行中</span>' : '<span class="product-badge" style="background:rgba(255,159,67,0.1);color:var(--accent2);border:1px solid rgba(255,159,67,0.3)">🛠️ 开发中</span>');
+    const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    div.innerHTML = `<div class="product-header"><span class="product-icon">${p.icon}</span>${badge}</div><div class="product-name">${p.name}</div><div class="product-desc">${p.desc}</div><div class="product-tags">${tags}</div>${isLive?'<div class="product-url">🔗 ' + p.url.replace('https://','') + '</div><div class="heartbeat-bar"><div class="heartbeat-fill"></div></div>':''}`;
+    container.appendChild(div);
+  });
+}
+
+renderProducts(PRODUCTS, document.getElementById('products-live'), true);
+renderProducts(DEV_PRODUCTS, document.getElementById('products-dev'), false);
+</script>
 </body>
 </html>
