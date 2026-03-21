@@ -41,7 +41,7 @@ header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
 .footer a{color:var(--accent);text-decoration:none}
 @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .product{animation:fadeIn .4s ease both}
-.products .product:nth-child(1){animation-delay:.05s}.products .product:nth-child(2){animation-delay:.1s}.products .product:nth-child(3){animation-delay:.15s}.products .product:nth-child(4){animation-delay:.2s}.products .product:nth-child(5){animation-delay:.25s}.products .product:nth-child(6){animation-delay:.3s}.products .product:nth-child(7){animation-delay:.35s}.products .product:nth-child(8){animation-delay:.4s}
+.products .product:nth-child(1){animation-delay:.03s}.products .product:nth-child(2){animation-delay:.06s}.products .product:nth-child(3){animation-delay:.09s}.products .product:nth-child(4){animation-delay:.12s}.products .product:nth-child(5){animation-delay:.15s}.products .product:nth-child(6){animation-delay:.18s}.products .product:nth-child(7){animation-delay:.21s}.products .product:nth-child(8){animation-delay:.24s}.products .product:nth-child(9){animation-delay:.27s}.products .product:nth-child(10){animation-delay:.3s}.products .product:nth-child(11){animation-delay:.33s}.products .product:nth-child(12){animation-delay:.36s}.products .product:nth-child(13){animation-delay:.39s}
 @media(max-width:600px){.container{padding:40px 16px 60px}.stats{gap:20px}}
 </style>
 </head>
@@ -51,9 +51,9 @@ header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
 <h1>⚡ RickZeke 产品组合</h1>
 <p>AI驱动的微型产品组合，持续构建、持续部署、持续迭代</p>
 <div class="stats">
-<div class="stat"><div class="num" id="count-live">8</div><div class="label">已上线产品</div></div>
-<div class="stat"><div class="num" id="count-healthy">8</div><div class="label">健康运行中</div></div>
-<div class="stat"><div class="num" id="count-dev">3</div><div class="label">开发中</div></div>
+<div class="stat"><div class="num" id="count-live">13</div><div class="label">已上线产品</div></div>
+<div class="stat"><div class="num" id="count-healthy">13</div><div class="label">健康运行中</div></div>
+<div class="stat"><div class="num" id="count-dev">5</div><div class="label">开发中</div></div>
 </div>
 </header>
 
@@ -75,20 +75,26 @@ header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
 
 <script>
 const PRODUCTS = [
-{name:'秒转',icon:'🎬',desc:'短视频链接 → 多平台内容，一键生成。抖音/小红书/视频号',url:'https://rickzeke.github.io/miaozhuan-web/',tags:['AI','内容创作','效率'],new:true,category:'efficiency'},
+{name:'秒转',icon:'🎬',desc:'短视频链接 → 多平台内容，一键生成。抖音/小红书/视频号',url:'https://rickzeke.github.io/miaozhuan-web/',tags:['AI','内容创作','效率'],new:false,category:'efficiency'},
 {name:'AI提示词管理器',icon:'💎',desc:'分类管理、一键复制、智能搜索。专业AI提示词库',url:'https://rickzeke.github.io/ai-productivity-web/',tags:['AI','效率'],new:false,category:'efficiency'},
 {name:'AI提示词优化',icon:'✨',desc:'6大职业场景，18个模板，AI一键优化提示词',url:'https://rickzeke.github.io/ai-prompt-pro-web/',tags:['AI','效率','职业'],new:false,category:'efficiency'},
 {name:'内容多平台发布',icon:'📡',desc:'AI润色、多平台预览、一键复制。支持微信公众号/微博/小红书',url:'https://rickzeke.github.io/multi-platform-publisher-web/',tags:['效率','创作者','多平台'],new:false,category:'efficiency'},
 {name:'歌词卡拉OK',icon:'🎤',desc:'LRC解析、逐行同步、极光动画。在线歌词同步播放器',url:'https://rickzeke.github.io/lyrics-sync-web/',tags:['音乐','娱乐','工具'],new:false,category:'entertainment'},
 {name:'AI英语口语陪练',icon:'🗣️',desc:'6大场景AI对话，智能提示词汇，沉浸式英语学习',url:'https://rickzeke.github.io/ai-english-web/',tags:['AI','教育','英语'],new:false,category:'education'},
 {name:'真心话大冒险',icon:'🎲',desc:'多人社交游戏，随机挑战题目，微信/抖音分享',url:'https://rickzeke.github.io/social-game-web/',tags:['游戏','社交','休闲'],new:false,category:'entertainment'},
-{name:'AI生活模拟器',icon:'🏠',desc:'租房奇遇模拟，AI生成剧情，体验不同人生',url:'https://rickzeke.github.io/ai-life-simulator-web/',tags:['AI','游戏','模拟'],new:false,category:'entertainment'},
+{name:'AI生活模拟器',icon:'🏠',desc:'租房奇遇 + 职场修炼双剧情，AI生成剧情，体验不同人生',url:'https://rickzeke.github.io/ai-life-simulator-web/',tags:['AI','游戏','模拟'],new:false,category:'entertainment'},
+{name:'AI运动视频高光',icon:'🏃',desc:'视频上传、标记高光、AI识别瞬间、导出分享卡片',url:'https://rickzeke.github.io/ai-sports-video-web/',tags:['AI','运动','视频'],new:true,category:'efficiency'},
+{name:'AI广告视频生成器',icon:'🎬',desc:'5行业模板、AI文案生成、一键导出广告卡',url:'https://rickzeke.github.io/ai-video-ad-web/',tags:['AI','广告','抖音'],new:true,category:'efficiency'},
+{name:'社交约伴App',icon:'👫',desc:'MBTI人格测试、活动匹配、Z世代社交发现',url:'https://rickzeke.github.io/social-finder-web/',tags:['社交','Z世代','约伴'],new:true,category:'social'},
+{name:'AI API聚合器',icon:'⚡',desc:'百度/字节/智谱/腾讯多平台API聚合、成本监控、模型对比',url:'https://rickzeke.github.io/ai-api-aggregator-web/',tags:['AI','开发者工具','API'],new:true,category:'efficiency'},
 ];
 
 const DEV_PRODUCTS = [
-{name:'AI运动视频分析',icon:'🏃',desc:'AI高光识别，一键剪辑分享到抖音/小红书',tags:['AI','运动','视频'],category:'efficiency'},
+{name:'AI对话教练',icon:'🎯',desc:'AI实时对话练习，面试/英语/社交场景，即时反馈',tags:['AI','面试','英语'],category:'education'},
 {name:'AI语音生成工具',icon:'🔊',desc:'基于Kitten TTS，轻量级语音合成，浏览器端运行',tags:['AI','TTS','开源'],category:'efficiency'},
 {name:'本地商家建站',icon:'🏪',desc:'AI自动生成商家认领页，多平台分发',tags:['工具','本地商家','建站'],category:'efficiency'},
+{name:'SLG重度小游戏',icon:'🎮',desc:'策略游戏，内购变现，微信IAP小游戏激励',tags:['游戏','SLG','重度'],category:'entertainment'},
+{name:'多平台发布工具',icon:'📤',desc:'内容创作者一键多平台发布，AI润色+草稿保存',tags:['效率','创作者','多平台'],category:'efficiency'},
 ];
 
 function renderProducts(list, container, isLive) {
