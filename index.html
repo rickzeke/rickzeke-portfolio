@@ -51,9 +51,9 @@ header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
 <h1>⚡ RickZeke 产品组合</h1>
 <p>AI驱动的微型产品组合，持续构建、持续部署、持续迭代</p>
 <div class="stats">
-<div class="stat"><div class="num" id="count-live">14</div><div class="label">已上线产品</div></div>
-<div class="stat"><div class="num" id="count-healthy">14</div><div class="label">健康运行中</div></div>
-<div class="stat"><div class="num" id="count-dev">3</div><div class="label">开发中</div></div>
+<div class="stat"><div class="num" id="count-live">16</div><div class="label">已上线产品</div></div>
+<div class="stat"><div class="num" id="count-healthy">16</div><div class="label">健康运行中</div></div>
+<div class="stat"><div class="num" id="count-dev">1</div><div class="label">开发中</div></div>
 </div>
 </header>
 
@@ -75,6 +75,7 @@ header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
 
 <script>
 const PRODUCTS = [
+{name:'InterviewPro AI面试',icon:'🎯',desc:'4大场景、难度选择、即时反馈评分、语音识别，模拟真实面试',url:'https://rickzeke.github.io/ai-conversation-coach-web/',tags:['AI','面试','职场'],new:true,category:'education'},
 {name:'VoiceCraft AI语音',icon:'🔊',desc:'Web Speech API语音合成、语音选择、语速/音调调节、波形动画',url:'https://rickzeke.github.io/ai-tts-tool-web/',tags:['AI','TTS','语音'],new:true,category:'efficiency'},
 {name:'秒转',icon:'🎬',desc:'短视频链接 → 多平台内容，一键生成。抖音/小红书/视频号',url:'https://rickzeke.github.io/miaozhuan-web/',tags:['AI','内容创作','效率'],new:false,category:'efficiency'},
 {name:'AI提示词管理器',icon:'💎',desc:'分类管理、一键复制、智能搜索。专业AI提示词库',url:'https://rickzeke.github.io/ai-productivity-web/',tags:['AI','效率'],new:false,category:'efficiency'},
@@ -91,7 +92,6 @@ const PRODUCTS = [
 ];
 
 const DEV_PRODUCTS = [
-{name:'AI对话教练',icon:'🎯',desc:'AI实时对话练习，面试/英语/社交场景，即时反馈',tags:['AI','面试','英语'],category:'education'},
 {name:'本地商家建站',icon:'🏪',desc:'AI自动生成商家认领页，多平台分发',tags:['工具','本地商家','建站'],category:'efficiency'},
 {name:'SLG重度小游戏',icon:'🎮',desc:'策略游戏，内购变现，微信IAP小游戏激励',tags:['游戏','SLG','重度'],category:'entertainment'},
 ];
