@@ -41,7 +41,7 @@ header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
 .footer a{color:var(--accent);text-decoration:none}
 @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .product{animation:fadeIn .4s ease both}
-.products .product:nth-child(1){animation-delay:.03s}.products .product:nth-child(2){animation-delay:.06s}.products .product:nth-child(3){animation-delay:.09s}.products .product:nth-child(4){animation-delay:.12s}.products .product:nth-child(5){animation-delay:.15s}.products .product:nth-child(6){animation-delay:.18s}.products .product:nth-child(7){animation-delay:.21s}.products .product:nth-child(8){animation-delay:.24s}.products .product:nth-child(9){animation-delay:.27s}.products .product:nth-child(10){animation-delay:.3s}.products .product:nth-child(11){animation-delay:.33s}.products .product:nth-child(12){animation-delay:.36s}.products .product:nth-child(13){animation-delay:.39s}
+.products .product:nth-child(1){animation-delay:.03s}.products .product:nth-child(2){animation-delay:.06s}.products .product:nth-child(3){animation-delay:.09s}.products .product:nth-child(4){animation-delay:.12s}.products .product:nth-child(5){animation-delay:.15s}.products .product:nth-child(6){animation-delay:.18s}.products .product:nth-child(7){animation-delay:.21s}.products .product:nth-child(8){animation-delay:.24s}.products .product:nth-child(9){animation-delay:.27s}.products .product:nth-child(10){animation-delay:.3s}.products .product:nth-child(11){animation-delay:.33s}.products .product:nth-child(12){animation-delay:.36s}.products .product:nth-child(13){animation-delay:.39s}.products .product:nth-child(14){animation-delay:.42s}.products .product:nth-child(15){animation-delay:.45s}.products .product:nth-child(16){animation-delay:.48s}.products .product:nth-child(17){animation-delay:.51s}
 @media(max-width:600px){.container{padding:40px 16px 60px}.stats{gap:20px}}
 </style>
 </head>
@@ -51,9 +51,9 @@ header p{color:var(--text2);font-size:16px;max-width:500px;margin:0 auto}
 <h1>⚡ RickZeke 产品组合</h1>
 <p>AI驱动的微型产品组合，持续构建、持续部署、持续迭代</p>
 <div class="stats">
-<div class="stat"><div class="num" id="count-live">16</div><div class="label">已上线产品</div></div>
-<div class="stat"><div class="num" id="count-healthy">16</div><div class="label">健康运行中</div></div>
-<div class="stat"><div class="num" id="count-dev">1</div><div class="label">开发中</div></div>
+<div class="stat"><div class="num" id="count-live">17</div><div class="label">已上线产品</div></div>
+<div class="stat"><div class="num" id="count-healthy">17</div><div class="label">健康运行中</div></div>
+<div class="stat"><div class="num" id="count-dev">4</div><div class="label">开发中</div></div>
 </div>
 </header>
 
@@ -95,6 +95,8 @@ const PRODUCTS = [
 const DEV_PRODUCTS = [
 {name:'本地商家建站',icon:'🏪',desc:'AI自动生成商家认领页，多平台分发',tags:['工具','本地商家','建站'],category:'efficiency'},
 {name:'SLG重度小游戏',icon:'🎮',desc:'策略游戏，内购变现，微信IAP小游戏激励',tags:['游戏','SLG','重度'],category:'entertainment'},
+{name:'男性健康追踪',icon:'💪',desc:'问卷+日常追踪+AI健康建议，男性长寿/睾酮优化',tags:['健康','AI','追踪'],category:'health'},
+{name:'匿名社交坦白局',icon:'🎭',desc:'AI生成坦白问题，每日挑战，匿名分享小圈子',tags:['社交','匿名','AI'],category:'social'},
 ];
 
 function renderProducts(list, container, isLive) {
